@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <h1 style="color:white"><center>User Registration</center></h1>    
+<body bgcolor="#483D8B">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.submit=function() {
+            debugger;
+        if((($scope.FirstName!="") && ($scope.LastName!="")  && ($scope.state!="") && ($scope.gender!="")) || $scope.city!="" || $scope.MiddleName!=""){
+          $scope.registered= "Successfully Registered";
+        }
+        else
+        {
+           $scope.registered="Please Enter the required Fields";
+        }
+        
+    }
+
+});
+</script>
+
+<div ng-app="myApp"   ng-controller="myCtrl">
+<style>
+table{
+border:2px solid black;
+padding: 5px;
+spacing: 5px;
+}
+th{
+padding: 5px;
+spacing: 5px;
+}
+
+td{
+padding-right: 20px;
+}
+</style>
+
+
+<table align="center" border-spacing: 40px; style="color:#6495ED;background-color:#00FFFF">
+<tr>
+<th align="left">FirstName</th>
+<td colspan="2" style="padding-right: 10px"><input type="text" ng-model="FirstName" placeholder="Enter your First Name"></td>
+</tr>
+<tr>
+<th align="left">MiddleName</th>
+<td colspan="2"><input type="text" ng-model="MiddleName" placeholder="Enter your MiddleName"></td>
+</tr>
+<tr>
+<th align="left">LastName</th>
+<td colspan="2"><input type="text" ng-model="LastName" placeholder="Enter your Last Name"></td>
+</tr>
+<tr>
+    <th align="left">State</th>
+    <td>
+     <select ng-model="state">
+        <option>Virginia</option>
+        <option>Chicago</option>
+        <option>Texas</option>
+    </select></td>
+    
+</tr>
+<tr>
+    <th align="left">City</th>
+    <td><input type="text" ng-model="city" placeholder="Enter your city"></td>
+</tr>
+
+<tr>
+    <th align="left">Gender</th>
+    <td><input type="radio" ng-model="gender" value="Male">Male</td>
+    <td><input type="radio" ng-model="gender" value="Female">Female</td>
+</tr>
+
+</table><br/>
+<div style="text-align:center">
+    <div>
+        <button type="button" ng-click="submit()">SUBMIT</button>
+    </div><br/>
+    <div>
+        <b><span ng-bind="registered" color="#8B008B" background-color="#228B22"></span></b>
+    </div>
+</div>
+</div>
+
